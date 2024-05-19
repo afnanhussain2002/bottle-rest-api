@@ -11,6 +11,10 @@ const Bottles = () => {
   const handleBuyBottle = (bottle) => {
     console.log(bottle);
     const newAddBottles = [...addBottles,bottle];
+    const avoidExistsBottle = addBottles.find(avoidBottle => avoidBottle.id === bottle.id)
+    if (avoidExistsBottle) {
+      return alert('This product already exists')
+    }
     setAddBottles(newAddBottles)
     addToLS(bottle.id)
   };
